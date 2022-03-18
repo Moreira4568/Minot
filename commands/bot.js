@@ -65,11 +65,9 @@ const killServer = (msg) => {
 
   if (msg.content === '!kill') {
     msg.channel.send(closing).then((msg) => {
-     var message = msg
-
       bat.stdin.write("stop\n");
       bat.stderr.on('close', (code) => {
-        message?.edit(closed)
+        msg.edit(closed)
         bat = spawn('java', ['-Xmx5024M', '-Xms5024M', '-jar', 'craftbukkit.jar', 'nogui', 'PAUSE'], { cwd: './server' });
       });
     })
