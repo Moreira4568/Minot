@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "dev": "nodemon src/js/index.js"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "discord.js": "^12.1.1",
+    "dotenv": "^8.2.0",
+    "http-parser-js": "^0.5.2",
+    "mongodb": "^3.5.7",
+    "nodemon": "^2.0.2",
+    "tree-kill": "^1.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2"
+  }
+}

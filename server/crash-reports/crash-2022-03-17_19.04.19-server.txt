@@ -1,0 +1,79 @@
+---- Minecraft Crash Report ----
+// My bad.
+
+Time: 17/03/22, 19:04
+Description: Exception in server tick loop
+
+java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 513
+	at it.unimi.dsi.fastutil.longs.LongLinkedOpenHashSet.fixPointers(LongLinkedOpenHashSet.java:829)
+	at it.unimi.dsi.fastutil.longs.LongLinkedOpenHashSet.removeEntry(LongLinkedOpenHashSet.java:531)
+	at it.unimi.dsi.fastutil.longs.LongLinkedOpenHashSet.remove(LongLinkedOpenHashSet.java:561)
+	at net.minecraft.world.level.lighting.LightEngineGraph.a(SourceFile:118)
+	at net.minecraft.world.level.lighting.LightEngineGraph.a(SourceFile:165)
+	at net.minecraft.world.level.lighting.LightEngineGraph.b(SourceFile:191)
+	at net.minecraft.server.level.ChunkMap.a(SourceFile:27)
+	at net.minecraft.world.level.lighting.LightEngineGraph.b(SourceFile:221)
+	at net.minecraft.server.level.ChunkMapDistance$a.a(ChunkMapDistance.java:479)
+	at net.minecraft.server.level.ChunkMapDistance.a(ChunkMapDistance.java:121)
+	at net.minecraft.server.level.ChunkProviderServer.q(ChunkProviderServer.java:324)
+	at net.minecraft.server.level.ChunkProviderServer$b.y(ChunkProviderServer.java:633)
+	at net.minecraft.server.level.ChunkProviderServer.d(ChunkProviderServer.java:320)
+	at net.minecraft.server.MinecraftServer.be(MinecraftServer.java:1137)
+	at net.minecraft.server.MinecraftServer.y(MinecraftServer.java:1121)
+	at net.minecraft.util.thread.IAsyncTaskHandler.c(SourceFile:140)
+	at net.minecraft.server.MinecraftServer.x(MinecraftServer.java:1105)
+	at net.minecraft.server.MinecraftServer.w(MinecraftServer.java:1017)
+	at net.minecraft.server.MinecraftServer.lambda$0(MinecraftServer.java:296)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- System Details --
+Details:
+	Minecraft Version: 1.18.2
+	Minecraft Version ID: 1.18.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.2, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode, sharing), Oracle Corporation
+	Memory: 3235059128 bytes (3085 MiB) / 5268045824 bytes (5024 MiB) up to 5268045824 bytes (5024 MiB)
+	CPUs: 12
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz
+	Identifier: Intel64 Family 6 Model 158 Stepping 10
+	Microarchitecture: Coffee Lake
+	Frequency (GHz): 3,19
+	Number of physical packages: 1
+	Number of physical CPUs: 6
+	Number of logical CPUs: 12
+	Graphics card #0 name: NVIDIA GeForce GTX 1070 Ti
+	Graphics card #0 vendor: NVIDIA (0x10de)
+	Graphics card #0 VRAM (MB): 4095,00
+	Graphics card #0 deviceId: 0x1b82
+	Graphics card #0 versionInfo: DriverVersion=30.0.15.1109
+	Memory slot #0 capacity (MB): 16384,00
+	Memory slot #0 clockSpeed (GHz): 2,67
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MB): 16384,00
+	Memory slot #1 clockSpeed (GHz): 2,67
+	Memory slot #1 type: DDR4
+	Virtual memory max (MB): 37566,92
+	Virtual memory used (MB): 25673,83
+	Swap memory total (MB): 4864,00
+	Swap memory used (MB): 0,00
+	JVM Flags: 2 total; -Xmx5024M -Xms5024M
+	CraftBukkit Information: 
+   Running: CraftBukkit version 3463-Bukkit-953d3dd (MC: 1.18.2) (Implementing API version 1.18.2-R0.1-SNAPSHOT) false
+   Plugins: {}
+   Warnings: DEFAULT
+   Reload Count: 0
+   Threads: { TIMED_WAITING IO-Worker-43: [java.base@17.0.2/jdk.internal.misc.Unsafe.park(Native Method), java.base@17.0.2/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252), java.base@17.0.2/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:401), java.base@17.0.2/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:903), java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061), java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122), java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635), java.base@17.0.2/java.lang.Thread.run(Thread.java:833)], RUNNABLE Reference Handler: [java.base@17.0.2/java.lang.ref.Reference.waitForReferencePendingList(Native Method), java.base@17.0.2/java.lang.ref.Reference.processPendingReferences(Reference.java:253), java.base@17.0.2/java.lang.ref.Reference$ReferenceHandler.run(Reference.java:215)], TIMED_WAITING IO-Worker-42: [java.base@17.0.2/jdk.internal.misc.Unsafe.park(Native Method), java.base@17.0.2/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252), java.base@17.0.2/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:401), java.base@17.0.2/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:903), java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061), java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122), java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635), java.base@17.0.2/java.lang.Thread.run(Thread.java:833)], RUNNABLE Signal Dispatcher: [], RUNNABLE Attach Listener: [], RUNNABLE Notification Thread: [], WAITING Finalizer: [java.base@17.0.2/java.lang.Object.wait(Native Method), java.base@17.0.2/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155), java.base@17.0.2/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176), java.base@17.0.2/java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:172)], TIMED_WAITING Timer hack thread: [java.base@17.0.2/java.lang.Thread.sleep(Native Method), net.minecraft.SystemUtils$8.run(SourceFile:784)], RUNNABLE Server thread: [java.base@17.0.2/java.lang.Thread.dumpThreads(Native Method), java.base@17.0.2/java.lang.Thread.getAllStackTraces(Thread.java:1662), org.bukkit.craftbukkit.v1_18_R2.CraftCrashReport.get(CraftCrashReport.java:33), org.bukkit.craftbukkit.v1_18_R2.CraftCrashReport.get(CraftCrashReport.java:1), net.minecraft.SystemReport.a(SourceFile:65), net.minecraft.CrashReport.<init>(CrashReport.java:35), net.minecraft.server.MinecraftServer.a(MinecraftServer.java:1086), net.minecraft.server.MinecraftServer.w(MinecraftServer.java:1028), net.minecraft.server.MinecraftServer.lambda$0(MinecraftServer.java:296), net.minecraft.server.MinecraftServer$$Lambda$4295/0x0000000801451660.run(Unknown Source), java.base@17.0.2/java.lang.Thread.run(Thread.java:833)], TIMED_WAITING Server console handler: [java.base@17.0.2/java.lang.Thread.sleep(Native Method), net.minecraft.server.dedicated.DedicatedServer$1.run(DedicatedServer.java:136)], TIMED_WAITING Common-Cleaner: [java.base@17.0.2/java.lang.Object.wait(Native Method), java.base@17.0.2/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155), java.base@17.0.2/jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:140), java.base@17.0.2/java.lang.Thread.run(Thread.java:833), java.base@17.0.2/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:162)], WAITING TerminalConsoleWriter: [java.base@17.0.2/jdk.internal.misc.Unsafe.park(Native Method), java.base@17.0.2/java.util.concurrent.locks.LockSupport.park(LockSupport.java:341), java.base@17.0.2/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506), java.base@17.0.2/java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3463), java.base@17.0.2/java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3434), java.base@17.0.2/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1623), java.base@17.0.2/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:435), com.mojang.logging.LogQueues.getNextLogEvent(LogQueues.java:41), org.bukkit.craftbukkit.v1_18_R2.util.TerminalConsoleWriterThread.run(TerminalConsoleWriterThread.java:31)], TIMED_WAITING Server Watchdog: [java.base@17.0.2/java.lang.Thread.sleep(Native Method), net.minecraft.server.dedicated.ThreadWatchdog.run(SourceFile:85), java.base@17.0.2/java.lang.Thread.run(Thread.java:833)], RUNNABLE Netty Server IO #0: [java.base@17.0.2/sun.nio.ch.WEPoll.wait(Native Method), java.base@17.0.2/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:111), java.base@17.0.2/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:129), java.base@17.0.2/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:146), io.netty.channel.nio.SelectedSelectionKeySetSelector.select(SelectedSelectionKeySetSelector.java:68), io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:810), io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:457), io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986), io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74), java.base@17.0.2/java.lang.Thread.run(Thread.java:833)], WAITING SIGINT handler: [java.base@17.0.2/java.lang.Object.wait(Native Method), java.base@17.0.2/java.lang.Thread.join(Thread.java:1304), java.base@17.0.2/java.lang.Thread.join(Thread.java:1372), java.base@17.0.2/java.lang.ApplicationShutdownHooks.runHooks(ApplicationShutdownHooks.java:107), java.base@17.0.2/java.lang.ApplicationShutdownHooks$1.run(ApplicationShutdownHooks.java:46), java.base@17.0.2/java.lang.Shutdown.runHooks(Shutdown.java:130), java.base@17.0.2/java.lang.Shutdown.exit(Shutdown.java:173), java.base@17.0.2/java.lang.Terminator$1.handle(Terminator.java:51), java.base@17.0.2/jdk.internal.misc.Signal$1.run(Signal.java:219), java.base@17.0.2/java.lang.Thread.run(Thread.java:833)], RUNNABLE DestroyJavaVM: [], RUNNABLE Thread-0: [it.unimi.dsi.fastutil.longs.LongOpenHashSet.contains(LongOpenHashSet.java:519), net.minecraft.server.level.PlayerChunkMap$a.a(PlayerChunkMap.java:1418), net.minecraft.server.level.ChunkMapDistance$a.c(ChunkMapDistance.java:453), net.minecraft.world.level.lighting.LightEngineGraph.b(SourceFile:183), net.minecraft.server.level.ChunkMap.a(SourceFile:27), net.minecraft.world.level.lighting.LightEngineGraph.b(SourceFile:221), net.minecraft.server.level.ChunkMapDistance$a.a(ChunkMapDistance.java:479), net.minecraft.server.level.ChunkMapDistance.a(ChunkMapDistance.java:121), net.minecraft.server.level.ChunkProviderServer.q(ChunkProviderServer.java:324), net.minecraft.server.level.ChunkProviderServer.a(ChunkProviderServer.java:385), net.minecraft.server.MinecraftServer.t(MinecraftServer.java:927), net.minecraft.server.dedicated.DedicatedServer.t(DedicatedServer.java:702), net.minecraft.server.MinecraftServer.close(MinecraftServer.java:868), org.bukkit.craftbukkit.v1_18_R2.util.ServerShutdownThread.run(ServerShutdownThread.java:15)],}
+   Recent tasks from 22429-22459{}
+   Force Loaded Chunks: { world: {}, world_nether: {}, world_the_end: {},}
+	Server Running: true
+	Player Count: 0 / 20; []
+	Data Packs: vanilla, file/bukkit (incompatible)
+	World Generation: Stable
+	Is Modded: Definitely; Server brand changed to 'CraftBukkit'
+	Type: Dedicated Server (map_server.txt)
