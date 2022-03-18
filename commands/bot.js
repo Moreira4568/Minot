@@ -62,18 +62,19 @@ const startServer = (msg) => {
 };
 
 const killServer = (msg) => {
-  var message = undefined
 
   if (msg.content === '!kill') {
     msg.channel.send(closing).then((msg) => {
-      message = msg
+     var message = msg
+
+      bat.stdin.write("stop\n");
+      bat.stderr.on('close', (code) => {
+        message?.edit(closed)
+        bat = spawn('java', ['-Xmx5024M', '-Xms5024M', '-jar', 'craftbukkit.jar', 'nogui', 'PAUSE'], { cwd: './server' });
+      });
     })
 
-    bat.stdin.write("stop\n");
-    bat.stderr.on('close', (code) => {
-      message?.edit(closed)
-      bat = spawn('java', ['-Xmx5024M', '-Xms5024M', '-jar', 'craftbukkit.jar', 'nogui', 'PAUSE'], { cwd: './server' });
-    });
+
   }
 };
 
